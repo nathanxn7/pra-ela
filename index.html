@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Pra dona Mafe...</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Página inicial -->
+  <div id="inicio" class="container">
+    <h1>Tenho uma fofoca Dona Fernanda...</h1>
+    <button onclick="mostrarSite()">Bisbilhotar</button>
+  </div>
+
+  <!-- Página principal -->
+  <div id="principal" class="container hidden">
+    <div class="slideshow">
+      <img src="1.jpg" class="slide active">
+      <img src="2.jpg" class="slide">
+      <img src="3.jpg" class="slide">
+      <img src="4.jpg" class="slide">
+
+      <!-- Setas para navegar -->
+      <button class="prev" onclick="mudarSlide(-1)">&#10094;</button>
+      <button class="next" onclick="mudarSlide(1)">&#10095;</button>
+    </div>
+
+    <h2 id="contador"></h2>
+    <p id="texto-final">Você tem sido uma das melhores decisões que já tomei, apesar do passado e do receio, quero te fazer ficar chocada de perceber que sou eu quem pretende te fazer a menina mais feliz desse mundo! ❤️</p>
+    <button onclick="voltarInicio()">Voltar</button>
+  </div>
+
+  <!-- Música -->
+  <audio id="musica" src="dizeres.mp3"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>

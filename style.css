@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  background: #000000;
+  color: #333;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 390px; /* largura do iPhone 14 */
+  min-height: 100vh;
+  text-align: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;  /* permite posicionar setas em relação ao container */
+}
+
+button {
+  padding: 12px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  background: #b10222;
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Slideshow */
+.slideshow {
+  position: relative;
+  max-width: 100%;
+  margin: 20px auto;
+  border-radius: 20px;
+  width: 90%;         
+  height: 400px;      
+  overflow: visible; /* permite que setas fiquem fora da imagem */
+}
+
+.slideshow img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  border-radius: 20px; 
+}
+
+.slideshow img.active {
+  opacity: 1;
+}
+
+/* Setas perfeitamente circulares, visíveis e fora da imagem */
+.prev, .next {
+  width: 36px;
+  height: 36px;
+  font-size: 18px;
+  padding: 0;
+  border-radius: 50%;
+  background-color: rgba(177,2,34,0.9);
+  color: white;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  z-index: 20;
+}
+
+/* Deslocamento visual para fora da imagem sem ultrapassar a tela */
+.prev {
+  left: 0;
+  transform: translate(-50%, -50%);
+}
+
+.next {
+  right: 0;
+  transform: translate(50%, -50%);
+}
+
+/* Texto final */
+#texto-final {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+/* Cabeçalho inicial */
+h1 {
+  padding-top: 8em;
+  font-size: 1.9em;
+  color: #b10222;
+}
+
+h2 {
+   color: #b10222; 
+}
+
+p {
+    color: #c9c9c9;
+}
