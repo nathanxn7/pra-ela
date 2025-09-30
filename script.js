@@ -8,7 +8,7 @@ function mostrarSite() {
 
   // Tocar música
   const musica = document.getElementById("musica");
-  musica.currentTime = 0; // começa do início
+  musica.currentTime = 0;
   musica.play();
 }
 
@@ -21,7 +21,7 @@ function voltarInicio() {
   // Parar música
   const musica = document.getElementById("musica");
   musica.pause();
-  musica.currentTime = 0; // reinicia para o começo
+  musica.currentTime = 0;
 }
 
 // Slideshow
@@ -42,7 +42,6 @@ function iniciarSlide() {
   }, 4000);
 }
 
-// Mudar slide manualmente
 function mudarSlide(n) {
   slides[index].classList.remove("active");
   index += n;
@@ -56,7 +55,7 @@ function mudarSlide(n) {
   }, 4000);
 }
 
-// Contador em tempo real
+// Contador
 let contadorInterval;
 function iniciarContador() {
   const inicio = new Date("2025-05-24T20:00:00");
@@ -90,6 +89,32 @@ function iniciarContador() {
     document.getElementById("contador").textContent = texto;
   }, 1000);
 }
+
+// Mini Player Spotify Style
+const musica = document.getElementById("musica");
+const playPauseBtn = document.getElementById("playPauseBtn");
+const progress = document.getElementById("progress");
+
+playPauseBtn.addEventListener("click", () => {
+  if (musica.paused) {
+    musica.play();
+    playPauseBtn.textContent = "⏸"; // pause preto
+  } else {
+    musica.pause();
+    playPauseBtn.textContent = "▶"; // play preto
+  }
+});
+
+musica.addEventListener("timeupdate", () => {
+  progress.value = (musica.currentTime / musica.duration) * 100 || 0;
+});
+
+progress.addEventListener("input", () => {
+  musica.currentTime = (progress.value / 100) * musica.duration;
+});
+
+musica.addEventListener("play", () => playPauseBtn.textContent = "⏸");
+musica.addEventListener("pause", () => playPauseBtn.textContent = "▶");
 
 // Verifica se já foi aberto antes
 window.onload = () => {
