@@ -16,6 +16,19 @@
 
   <!-- Página principal -->
   <div id="principal" class="container hidden">
+
+    <!-- Mini Player estilo Spotify -->
+    <div class="mini-player">
+      <img src="capa.jpeg" alt="Capa da música" class="cover">
+      <div class="info">
+        <div class="title">Dizeres</div>
+        <div class="artist">Lourena & Sant</div>
+        <input type="range" id="progress" value="0" min="0" max="100">
+      </div>
+      <button id="playPauseBtn">▶️</button>
+    </div>
+
+    <!-- Slideshow -->
     <div class="slideshow">
       <img src="1.jpg" class="slide active">
       <img src="2.jpg" class="slide">
@@ -28,7 +41,9 @@
     </div>
 
     <h2 id="contador"></h2>
-    <p id="texto-final">Você tem sido uma das melhores decisões que já tomei, apesar do passado e do receio, quero te fazer ficar chocada de perceber que sou eu quem pretende te fazer a menina mais feliz desse mundo! ❤️</p>
+    <p id="texto-final">
+      Você tem sido uma das melhores decisões que já tomei, apesar do passado e do receio, quero te fazer ficar chocada de perceber que sou eu quem pretende te fazer a menina mais feliz desse mundo! ❤️
+    </p>
     <button onclick="voltarInicio()">Voltar</button>
   </div>
 
