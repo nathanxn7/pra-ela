@@ -197,3 +197,39 @@ p {
 .mini-player button:hover {
   background: #17a444;
 }
+
+/* Frases com gifs */
+#frases {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.frase {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+  text-align: center;
+}
+
+.frase.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.frase p {
+  color: #ffffff;
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.frase img {
+  width: 100%;
+  max-width: 320px;
+ 
+  box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+}
+
