@@ -122,3 +122,19 @@ window.onload = () => {
     mostrarSite();
   }
 };
+
+// Efeito de aparecer ao rolar
+const frases = document.querySelectorAll('.frase');
+
+function revelarFrases() {
+  frases.forEach(frase => {
+    const rect = frase.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 80) {
+      frase.classList.add('visible');
+    }
+  });
+}
+
+window.addEventListener('scroll', revelarFrases);
+window.addEventListener('load', revelarFrases);
+
