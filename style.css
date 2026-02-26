@@ -233,3 +233,9 @@ p {
   box-shadow: 0 4px 15px rgba(0,0,0,0.6);
 }
 
+.contador-secundario {
+  color: #ff69b4; /* Mude aqui para a cor que você preferir (ex: #ff69b4 é rosa) */
+  margin-top: 10px;
+  font-size: 1.4em; /* Opcional: ajuste o tamanho se quiser menor que o primeiro */
+  font-weight: 700;
+}
