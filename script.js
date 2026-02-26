@@ -58,37 +58,50 @@ function mudarSlide(n) {
 // Contador
 let contadorInterval;
 function iniciarContador() {
-  const inicio = new Date("2025-05-24T20:00:00");
+  const inicio1 = new Date("2025-05-24T20:00:00");
+  const inicio2 = new Date("2025-08-02T20:00:00"); 
 
   if (contadorInterval) clearInterval(contadorInterval);
 
   contadorInterval = setInterval(() => {
     const agora = new Date();
 
-    let anos = agora.getFullYear() - inicio.getFullYear();
-    let meses = agora.getMonth() - inicio.getMonth();
-    let dias = agora.getDate() - inicio.getDate();
-    let horas = agora.getHours() - inicio.getHours();
-    let minutos = agora.getMinutes() - inicio.getMinutes();
-    let segundos = agora.getSeconds() - inicio.getSeconds();
+    // Função interna para reaproveitar a lógica de cálculo
+    const calcularTempo = (dataReferencia) => {
+      let anos = agora.getFullYear() - dataReferencia.getFullYear();
+      let meses = agora.getMonth() - dataReferencia.getMonth();
+      let dias = agora.getDate() - dataReferencia.getDate();
+      let horas = agora.getHours() - dataReferencia.getHours();
+      let minutos = agora.getMinutes() - dataReferencia.getMinutes();
+      let segundos = agora.getSeconds() - dataReferencia.getSeconds();
 
-    if (segundos < 0) { segundos += 60; minutos--; }
-    if (minutos < 0) { minutos += 60; horas--; }
-    if (horas < 0) { horas += 24; dias--; }
-    if (dias < 0) {
-      const ultimoDiaMesAnterior = new Date(agora.getFullYear(), agora.getMonth(), 0).getDate();
-      dias += ultimoDiaMesAnterior;
-      meses--;
-    }
-    if (meses < 0) { meses += 12; anos--; }
+      if (segundos < 0) { segundos += 60; minutos--; }
+      if (minutos < 0) { minutos += 60; horas--; }
+      if (horas < 0) { horas += 24; dias--; }
+      if (dias < 0) {
+        const ultimoDiaMesAnterior = new Date(agora.getFullYear(), agora.getMonth(), 0).getDate();
+        dias += ultimoDiaMesAnterior;
+        meses--;
+      }
+      if (meses < 0) { meses += 12; anos--; }
 
-    let texto = "Desde o dia que te beijei e sabia que era você, se passaram ";
-    if (anos > 0) texto += `${anos} anos, `;
-    texto += `${meses} meses, ${dias} dias, ${horas}h ${minutos}m ${segundos}s 💕`;
+      let texto = "";
+      if (anos > 0) texto += `${anos} anos, `;
+      texto += `${meses} meses, ${dias} dias, ${horas}h ${minutos}m ${segundos}s 💕`;
+      return texto;
+    };
 
-    document.getElementById("contador").textContent = texto;
+    // Atualiza o primeiro contador (Original)
+    document.getElementById("contador").textContent = 
+      "Desde o dia que te beijei pela primeira vez, se passaram " + calcularTempo(inicio1);
+
+    // Atualiza o segundo contador (Novo)
+    document.getElementById("contador-novo").textContent = 
+      "E desde o dia que percebemos que era pra ser, se passaram " + calcularTempo(inicio2); 
+      
   }, 1000);
 }
+
 
 // Mini Player Spotify Style
 const musica = document.getElementById("musica");
