@@ -68,7 +68,7 @@ button {
   height: 36px;
   font-size: 18px;
   padding: 0;
-  border-radius: 50%;
+  border-radius: 25%;
   background-color: rgba(177,2,34,0.9);
   color: white;
   border: none;
@@ -80,12 +80,12 @@ button {
 
 .prev {
   left: 0;
-  transform: translate(-50%, -50%);
+  transform: translate(10%, 440%);
 }
 
 .next {
   right: 0;
-  transform: translate(50%, -50%);
+  transform: translate(-10%, 440%);
 }
 
 /* Texto final */
@@ -238,4 +238,60 @@ p {
   margin-top: 10px;
   font-size: 1.4em; /* Opcional: ajuste o tamanho se quiser menor que o primeiro */
   font-weight: 700;
+}
+
+.titulo-registros {
+  margin-top: 40px;
+  color: #b10222;
+  font-size: 1.5em;
+}
+
+.video-slideshow {
+  position: relative;
+  width: 90%;
+  height: 400px; /* Ajuste a altura conforme preferir */
+  margin: 20px auto;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #000;
+}
+
+.v-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.v-slide.active {
+  opacity: 1;
+}
+
+.v-prev, .v-next {
+  width: 36px;
+  height: 36px;
+  font-size: 18px;
+  padding: 0;
+  border-radius: 25%;
+  background-color: rgba(177,2,34,0.9);
+  color: white;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 89.5%;
+  z-index: 20;
+}
+
+.v-prev {
+  left: 0;
+  transform: translate(10%, 1%);
+}
+
+.v-next {
+  right: 0;
+  transform: translate(-10%, 1%);
 }
