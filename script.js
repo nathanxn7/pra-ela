@@ -5,6 +5,7 @@ function mostrarSite() {
   localStorage.setItem("abriu", "sim");
   iniciarSlide();
   iniciarContador();
+  iniciarVideos();
 
   // Tocar música
   const musica = document.getElementById("musica");
@@ -151,3 +152,36 @@ function revelarFrases() {
 window.addEventListener('scroll', revelarFrases);
 window.addEventListener('load', revelarFrases);
 
+let vIndex = 0;
+let vSlides = [];
+
+function mudarVideo(n) {
+  vSlides = document.querySelectorAll(".v-slide");
+  
+  // Esconde o vídeo atual e pausa
+  vSlides[vIndex].classList.remove("active");
+  vSlides[vIndex].pause();
+
+  vIndex += n;
+
+  if (vIndex >= vSlides.length) vIndex = 0;
+  if (vIndex < 0) vIndex = vSlides.length - 1;
+
+  // Mostra o novo vídeo e dá play
+  vSlides[vIndex].classList.add("active");
+  vSlides[vIndex].play();
+}
+
+// Inicializar os vídeos quando o site abrir
+// Adicione a chamada abaixo dentro da sua função mostrarSite() que já existe
+// function mostrarSite() {
+//    ...
+//    iniciarVideos(); 
+// }
+
+function iniciarVideos() {
+  vSlides = document.querySelectorAll(".v-slide");
+  if(vSlides.length > 0) {
+      vSlides[0].play();
+  }
+}
